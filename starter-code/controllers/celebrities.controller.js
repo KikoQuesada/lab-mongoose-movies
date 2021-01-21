@@ -6,3 +6,15 @@ module.exports.list = (req, res, next) => {
         .then(celebrities => res.render('celebrities/list', { celebrities }))
         .catch(next);
 };
+
+module.exports.detail = (req, res, next) => {
+    Celebrity.findById(req.params.id)
+        .then(celebrity => {
+            if(celebrity) {
+                res.render('celebrities/detail', {celebrity});
+            }else {
+                res.render('/celebrities');
+            }
+        })
+        .catch(next);
+};
