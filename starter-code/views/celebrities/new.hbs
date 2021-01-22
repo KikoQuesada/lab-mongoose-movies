@@ -1,0 +1,30 @@
+<div class="mb-5 mb-5">
+    <h2>Create Celebrity</h2>
+</div>
+
+<div>
+    <form action="/celebrities" method="POST">
+        <div class="row mb-3">
+            <label class="col-sm-1 col-form-label">Name</label>
+            <div class="col-sm-5">
+                <input type="text" name="name" id="name" placeholder="Enter the name" value="{{celebrity.name}}" class="form-control {{#if errors.name}}is-invalid{{/if}}" >
+                {{#if errors.name}}
+                    <div class="invalid-feedback">{{errors.name}}</div>
+                {{/if}}
+            </div>
+        </div>
+        <div class="row mb-3">
+            <label class="col-sm-1 col-form-label">Occupation</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control">
+                </div>
+        </div>
+        <div class="row mb-3">
+            <label class="col-sm-1 col-form-label">Catch Phrase</label>
+                <div class="col-sm-5">
+                    <input type="text" class="form-control">
+                </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Create</button>
+    </form>
+</div>

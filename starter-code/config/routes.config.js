@@ -9,6 +9,11 @@ router.get('/', (req, res, next) => {
 });
 
 router.get('/celebrities', celebritiesController.list);
+router.get('/celebrities/new', celebritiesController.create);
+router.post('/celebrities', celebritiesController.doCreate);
 router.get('/celebrities/:id', celebritiesController.detail);
+
+
+
 
 module.exports = router;
