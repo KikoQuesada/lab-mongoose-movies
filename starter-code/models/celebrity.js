@@ -4,16 +4,19 @@ const Schema = mongoose.Schema;
 const celebritySchema = new Schema ({
     name: {
         type: String,
-        require: 'The celebrity needs a name'
+        require: 'The celebrity needs a name',
+        
     },
     occupation: {
         type: String,
-        require: 'The celebrity needs an occupation'
+        require: 'The celebrity needs an occupation',
+        
     },
     catchPhrase: {
         type: String,
-        require: 'The celebrity needs a catch phrase'
-    }
+        require: 'The celebrity needs a catch phrase',
+        
+    },
 });
 
 const Celebrity = mongoose.model('Celebrity', celebritySchema);

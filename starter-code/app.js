@@ -43,10 +43,19 @@ app.use(favicon(path.join(__dirname, 'public', 'images', 'favicon.ico')));
 // default value for title local
 app.locals.title = 'Express - Generated with IronGenerator';
 
+app.use((error, req, res, next) => {
+  console.error(error);
+  let status = error.status || 500;
+
+  res.status(status).render('error', {
+    message: error.message,
+    error: req.app.get('env') === 'development' ? error : {},
+  });
+});
 
 
-const index = require('./config/routes.config');
-app.use('/', index);
+const routes = require('./config/routes.config');
+app.use('/', routes);
 
 
 module.exports = app;
